@@ -10,7 +10,12 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("CHATIFY",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.bold),),
+        leading: Icon(null),
+        centerTitle: true,
+        title: Text(
+          "CHATIFY",
+          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+        ),
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('users').snapshots(),
@@ -34,7 +39,7 @@ class HomeScreen extends StatelessWidget {
               final userDoc = users[index].data() as Map<String, dynamic>;
 
               if (!userDoc.containsKey('userId')) {
-                return Container(); 
+                return Container();
               }
 
               if (userDoc['userId'] == currentUser!.uid) {
@@ -42,7 +47,6 @@ class HomeScreen extends StatelessWidget {
               }
 
               return ListTile(
-                
                 title: Text(userDoc['name'] ?? 'No name'),
                 subtitle: Text(userDoc['email'] ?? 'No email'),
                 onTap: () {
