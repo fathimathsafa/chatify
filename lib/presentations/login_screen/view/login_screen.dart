@@ -119,8 +119,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   pwd: passwordController.text.trim())
               .then((response) {
             if (response == null) {
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) =>  HomeScreen()));
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => HomeScreen()));
             }
           });
         },
@@ -145,9 +145,9 @@ class _LoginScreenState extends State<LoginScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text("Already have an account?"),
+            Text("Don't have an account?"),
             Text(
-              "Login",
+              "Sign up",
               style: TextStyle(fontWeight: FontWeight.w800),
             ),
           ],

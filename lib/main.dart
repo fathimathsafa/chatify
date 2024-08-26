@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:wincept_task/presentations/splash_screen/view/splash_screen.dart';
@@ -11,6 +12,7 @@ void main() async {
           appId: "1:40213863269:android:126c0b876f39fedebf5f8c",
           messagingSenderId: "",
           projectId: "winceptchat"));
+        //   await FirebaseMessaging.instance.subscribeToTopic("sample");
 
   runApp(const MyApp());
 }

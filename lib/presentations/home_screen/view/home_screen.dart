@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:wincept_task/presentations/chat_screen/view/chat_screen.dart';
+import 'package:wincept_task/presentations/home_screen/controller/logout_controller.dart';
+import 'package:wincept_task/presentations/login_screen/view/login_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -16,6 +18,18 @@ class HomeScreen extends StatelessWidget {
           "CHATIFY",
           style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
         ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {
+                LogOutFunctions().logoutuser().then((value) =>
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const LoginScreen())));
+              },
+              icon: Icon(
+                Icons.logout_outlined,
+                color: Colors.blue,
+              ))
+        ],
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance.collection('users').snapshots(),
